@@ -31,8 +31,8 @@ def user_score(user_score, update):
     :return:
         Integer, the updated user score
     """
-    try:
-        return user_score+update
-    except ValueError:
-        print("Invalid input! Please enter a valid integer.")
+    if not isinstance(user_score, int) or not isinstance(update, int):
+        return "Invalid input! Please enter a valid integer."
+
+    return user_score + update
 
