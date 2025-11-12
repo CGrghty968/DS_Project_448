@@ -1,3 +1,4 @@
+import unittest
 from unittest import TestCase
 from main import user_name, user_score
 
@@ -40,6 +41,21 @@ class TestUserScore(TestCase):
         """
         Function for testing the error handling in the user_score function
         """
+
+
+
         self.assertEqual(user_score("1e0", 50), "Invalid input! Please enter a valid integer.")
         self.assertEqual(user_score(100, "5a0"), "Invalid input! Please enter a valid integer.")
         self.assertEqual(user_score("abc", "xyz"), "Invalid input! Please enter a valid integer.")
+
+
+# def suite():
+#     test_suite = unittest.TestSuite()
+#     test_suite.addTest(unittest.makeSuite(TestUserScore))
+#     test_suite.addTest(unittest.makeSuite(TestUserName))
+#
+#     return test_suite
+#
+# mySuite = suite()
+# runner = unittest.TextTestRunner()
+# runner.run(mySuite)
