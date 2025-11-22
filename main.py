@@ -1,14 +1,15 @@
 """
 @author : Cillian Geraghty
+@file   : main.py
 @version : 1.0.0
 """
 
 import re
 
-def user_name(user_name):
+def user_name(name):
     """
     
-    :param user_name: 
+    :param name: 
         String, the user's username
     :return: 
         String, the user's confirmed username
@@ -16,23 +17,22 @@ def user_name(user_name):
 
     pattern = r'^[a-zA-Z0-9_,.\'-]{5,50}$'
 
-    if re.match(pattern, user_name):
-        return "Username: "+user_name
-    else:
-        return "Invalid Username"
+    if re.match(pattern, name):
+        return "Username: "+name
 
-def user_score(user_score, update):
+    return "Invalid Username"
+
+def user_score(score, update):
     """
 
-    :param user_score:
+    :param score:
         Integer, the user's score
     :param update:
         Integer, the user's update amount
     :return:
         Integer, the updated user score
     """
-    if not isinstance(user_score, int) or not isinstance(update, int):
+    if not isinstance(score, int) or not isinstance(update, int):
         return "Invalid input! Please enter a valid integer."
 
-    return user_score + update
-
+    return score + update

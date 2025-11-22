@@ -1,3 +1,8 @@
+"""
+@author: Cillian Geraghty
+@version: 1.0.0
+@file: test_suite.py
+"""
 import unittest
 
 def run_test_suite():
