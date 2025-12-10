@@ -22,13 +22,31 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-    - name: Set PYTHONPATH so pydoc can import from ../main
-      run: |
-        echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
-    - name: Autodocumenting with PyDoc
-      run: |
-          # Make a private directory called docs
+         - name: Make repository importable
+        run: |
+          echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
+
+         - name: Make repository importable
+        run: |
+          echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
+
+    - name: Generate pydoc for all Python files
+    run: |
           mkdir -p docs
-          cd docs
-          # Generate docs for your package and all modules
-          python -m pydoc -w ../main
+          for f in *.py; do
+            python -m pydoc -w "$f"
+            mv "${f%.py}.html" docs/
+          done
+    - name: Create index.html
+    run: |
+          echo "<html><body><h1>Project Documentation</h1><ul>" > docs/index.html
+          for f in docs/*.html; do
+            fname=$(basename "$f")
+            echo "<li><a href=\"$fname\">$fname</a></li>" >> docs/index.html
+          done
+          echo "</ul></body></html>" >> docs/index.html
+
+- name: Upload docs artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
