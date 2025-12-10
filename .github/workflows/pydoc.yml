@@ -3,7 +3,9 @@ name: Pydoc
 on: [push]
 
 permissions:
-  contents: write
+    pages: write
+    id-token: write
+    contents: write
 
 jobs:
   build:
@@ -22,11 +24,11 @@ jobs:
         python -m pip install --upgrade pip
     - name: Set PYTHONPATH so pydoc can import from ../main
       run: |
-        echo "PYTHONPATH=$(pwd)/main" >> $GITHUB_ENV
+        echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
     - name: Autodocumenting with PyDoc
       run: |
           # Make a private directory called docs
           mkdir -p docs
           cd docs
           # Generate docs for your package and all modules
-          python -m pydoc -w package.module1
+          python -m pydoc -w ../main
