@@ -1,8 +1,8 @@
-name: Generate Pydoc Documentation
+name: PyDoc
 
 on:
   push:
-    branches: [main, master]
+    branches: [main]
 
 jobs:
   generate-pydoc:
@@ -15,7 +15,7 @@ jobs:
     - name: Setup Python
       uses: actions/setup-python@v5
       with:
-        python-version: '3.x'
+        python-version: '3.12'
     
     - name: Create HTML documentation with pydoc
       run: |
