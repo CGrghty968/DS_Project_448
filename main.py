@@ -29,15 +29,15 @@ def user_name(name):
         String, the user's confirmed username
     """
 
-    logger.debug(f"Validating username: {name}")
+    logger.debug(f"Validating username: %s", name)
 
     pattern = r'^[a-zA-Z0-9_,.\'-]{5,50}$'
 
     if re.match(pattern, name):
-        logger.info(f"Valid username received: {name}")
+        logger.info(f"Valid username received: %s", name)
         return "Username: " + name
 
-    logger.warning(f"Invalid username input: {name}")
+    logger.warning(f"Invalid username input: %s", name)
     return "Invalid Username"
 
 
@@ -51,12 +51,12 @@ def user_score(score, update):
         Integer, the updated user score
     """
 
-    logger.debug(f"Updating user score: score={score}, update={update}")
+    logger.debug(f"Updating user score: score=%s, update=%s", score, update)
 
     if not isinstance(score, int) or not isinstance(update, int):
         logger.error("Invalid input types for score or update")
         return "Invalid input! Please enter a valid integer."
 
     new_score = score + update
-    logger.info(f"Score updated successfully: new_score={new_score}")
+    logger.info(f"Score updated successfully: new_score=%s", new_score)
     return new_score

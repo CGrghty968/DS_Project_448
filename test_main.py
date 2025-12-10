@@ -14,6 +14,7 @@ class TestUserName(TestCase):
     def test_valid_user_name(self):
         """
         Function to test the user_name validator function, using valid usernames
+        Hardcoded list for testing purposes of early prototype
         """
         valid_names = ["john123", "user_name", "test.user", "abcde", "a" * 50]
         for name in valid_names:
