@@ -26,4 +26,4 @@ jobs:
           mkdir -p docs
           cd docs
           # Generate docs for your package and all modules
-          python -m pydoc -w ../
+          python -m pydoc -w ../main
