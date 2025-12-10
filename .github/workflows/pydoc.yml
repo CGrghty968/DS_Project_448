@@ -2,6 +2,9 @@ name: Pydoc
 
 on: [push]
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,4 +22,8 @@ jobs:
         python -m pip install --upgrade pip
     - name: Autodocumenting with PyDoc
       run: |
-        python -m pydoc -w "..\"
+          # Make a private directory called docs
+          mkdir -p docs
+          cd docs
+          # Generate docs for your package and all modules
+          python -m pydoc -w ../
