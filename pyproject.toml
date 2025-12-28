@@ -1,9 +1,9 @@
 [build-system]
-requires = ["setuptools"]
+requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "DS_Project_448"
+name = "DS_Project_448" # Changed to avoid name collision on PyPI
 version = "1.0.0"
 authors = [{name = "Cillian Geraghty", email = "L00181448@atu.ie"}]
 license-files = ["LICENSE"]
@@ -14,7 +14,6 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 
-
 [tool.setuptools.packages.find]
-build = [build]
 where = ["."]
+exclude = ["build*", "dist*", "tests*"] # Prevents build artifacts from being bundled
