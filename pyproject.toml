@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "main"
+version = "1.0.0"
+authors = [{name = "Cillian Geraghty", email = "L00181448@atu.ie"}]
+license-files = ["LICENSE"]
+readme = "README.md"
+requires-python = ">=3.13"
+classifiers = [
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+
+[tool.setuptools.packages.find]
+where = ["."]
