@@ -21,8 +21,10 @@ jobs:
         python -m pip install .
 
     - name: Build package
-      run: python -m build
-
+      run: |
+        rm -rf build/
+        python -m build
+        
     - name: Test publish package
       uses: pypa/gh-action-pypi-publish@release/v1
       with:
